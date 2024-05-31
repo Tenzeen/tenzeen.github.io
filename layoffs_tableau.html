@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Global Layoffs Overview Dashboard Project</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        body {
+            zoom: 0.75; /* 75% zoom for the entire page */
+        }
+        .dashboard-wrapper {
+            zoom: 1.4; /* Counteract the 75% zoom to maintain original size */
+            transform-origin: top left;
+        }
+        .centered-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transform: scale(.75); /* 75% zoom */
+            transform-origin: top left;
+            width: 133.3333%; /* Compensate for the scaling */
+        }
+        .tableauPlaceholder {
+            width: 100%;
+            max-width: 1400px;
+            height: 1027px;
+        }
+        .centered-text {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Header -->
+        <header id="header">
+            <a href="index.html" class="logo">Back to Portfolio</a>
+        </header>
+
+        <!-- Nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="layoffs_overview.html">Project Overview</a></li>
+                <li><a href="layoffs_cleaning.html">SQL</a></li>
+                <li class="active"><a href="layoffs_tableau.html">Tableau</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://www.linkedin.com/in/tenzintsegyal/" class="icon brands fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+                <li><a href="https://github.com/Tenzeen" class="icon brands fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <!-- Post -->
+            <section class="post">
+                <header class="major">
+                    <h1>Global Layoffs </br>Tableau Dashboard</h1>
+                </header>
+
+                <!-- Embed Tableau Dashboard -->
+                <div class="dashboard-wrapper">
+                    <div class="centered-container">
+                        <div class='tableauPlaceholder' id='viz1717020768526' style='position: relative'>
+                            <noscript>
+                                <a href='#'><img alt='Dashboard 1' src='https://public.tableau.com/static/images/Gl/GlobalLayoffs_17152156377130/Dashboard1/1_rss.png' style='border: none' /></a>
+                            </noscript>
+                            <object class='tableauViz' style='display:none;'>
+                                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                                <param name='embed_code_version' value='3' />
+                                <param name='site_root' value='' />
+                                <param name='name' value='GlobalLayoffs_17152156377130/Dashboard1' />
+                                <param name='tabs' value='no' />
+                                <param name='toolbar' value='yes' />
+                                <param name='static_image' value='https://public.tableau.com/static/images/Gl/GlobalLayoffs_17152156377130/Dashboard1/1.png' />
+                                <param name='animate_transition' value='yes' />
+                                <param name='display_static_image' value='yes' />
+                                <param name='display_spinner' value='yes' />
+                                <param name='display_overlay' value='yes' />
+                                <param name='display_count' value='yes' />
+                                <param name='language' value='en-US' />
+                            </object>
+                        </div>
+                    </div>
+                </div>
+
+                <script type='text/javascript'>
+                    var divElement = document.getElementById('viz1717020768526');
+                    var vizElement = divElement.getElementsByTagName('object')[0];
+                    if ( divElement.offsetWidth > 800 ) {
+                        vizElement.style.width='1400px';
+                        vizElement.style.height='1027px';
+                    } else if ( divElement.offsetWidth > 500 ) {
+                        vizElement.style.width='1400px';
+                        vizElement.style.height='1027px';
+                    } else {
+                        vizElement.style.width='100%';
+                        vizElement.style.height='3077px';
+                    }
+                    var scriptElement = document.createElement('script');
+                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                </script>
+
+                <!-- Dashboard Description -->
+                <section>
+                    <script></script>
+                    <p class="centered-text">(Please click on View on Tableau Public for a clearer view of the dashboard)</p>
+
+                    <h2>Insights from the Dashboard</h2>
+
+                    <h3>1. Total Employees Laid Off</h3>
+                    <p><strong>Insight:</strong> The dashboard shows that a total of 605,193 employees have been laid off globally from March 2020 to May 2024.</p>
+                    <p><strong>Possible Reason:</strong> The global economic downturn and market uncertainties during this post COVID period have led to widespread layoffs across various sectors. This trend reflects the significant impact of economic disruptions on employment.</p>
+                    
+                    <h3>2. Total Layoffs by Month</h3>
+
+                    <p><strong>Insight:</strong> The area chart illustrates the monthly trend of layoffs, highlighting a significant increase in layoffs during certain periods.</p>
+                    <p><strong>Possible Reason:</strong> Peaks in the chart may correspond to major economic events, such as the onset of the COVID-19 pandemic, economic recessions, or significant shifts in market conditions. These events force companies to downsize rapidly in response to decreased demand or financial pressures.</p>
+                    
+                    <p><strong>Interest Rate Hikes (2022-2023)</strong></p>
+                    <p><strong>January 2022:</strong> 0% to 0.25%</p>
+                    <p><strong>January 2023:</strong> 4.25% to 4.50%</p>
+                    <p><strong>Source:</strong> <a href="https://fred.stlouisfed.org/series/FEDFUNDS" target="_blank">Federal Reserve Economic Data (FRED)</a></p>
+
+                    <p>The Federal Reserve's aggressive rate hikes aimed to combat rising inflation. These hikes contributed to tighter financial conditions, which likely influenced corporate decisions regarding layoffs as companies faced higher borrowing costs and potential reductions in consumer spending.</p>
+                    
+                    <h3>3. Layoffs by Top 5 Countries</h3>
+                    <p><strong>Insight:</strong> The United States has the highest number of layoffs (408.76K), followed by India, Germany, the United Kingdom, and the Netherlands.</p>
+                    <p><strong>Possible Reason:</strong> The concentration of layoffs in these countries may be due to their larger economies and higher exposure to global market fluctuations. These countries have substantial workforces and industries vulnerable to economic changes.</p>
+                    
+                    <h3>4. Layoffs by Top 5 Industries</h3>
+                    <p><strong>Insight:</strong> The Retail industry has been the most affected, with 70.16K layoffs, followed by Consumer, Other, Transportation, and Food industries.</p>
+                    <p><strong>Insight:</strong> The Retail industry has been the most affected, with 70.16K layoffs, followed by Consumer, Other, Transportation, and Food industries.</p>
+                    <p><strong>Possible Reason:</strong> Many companies in the Retail industry affected by layoffs are online-based. This suggests that even e-commerce and online retail companies have faced significant challenges due to economic conditions. Factors such as inflation, changing consumer behaviors, supply chain disruptions, and increased operational costs have impacted these businesses. Consumers are more value-focused, and the economic uncertainty has led to reduced discretionary spending, affecting online retailers significantly.</p>
+                    <p><strong>Sources:</strong> 
+                        <a href="https://www.nielseniq.com/global/en/insights/analysis/2023/the-omni-future-of-retail-2023-outlook-on-e-commerce-and-in-store-shopping/" target="_blank">NielsenIQ</a>
+                        
+                        <h3>5. Layoffs by Top 5 Companies</h3>
+                        <p><strong>Insight:</strong> Amazon has the highest number of layoffs (27.84K), followed by Meta, Tesla, Google, and Microsoft.</p>
+                        <p><strong>Possible Reason:</strong> Major companies have had to restructure and optimize their workforce in response to economic pressures and technological advancements. These layoffs are a result of multiple factors:</p>
+                        <ul>
+                            <li><strong>COVID-19 Over-hiring:</strong> During the pandemic, tech companies expanded rapidly to meet increased demand for digital services. As the market stabilized, the need for such a large workforce diminished. <a href="https://www.usatoday.com/story/tech/2023/01/23/amazon-meta-google-tech-layoffs/111364" target="_blank">USA Today</a>, <a href="https://www.businesstoday.in/latest/world/story/google-microsoft-amazon-5-reasons-why-big-tech-companies-are-laying-off-employees-364464-2023-01-24" target="_blank">Business Today</a></li>
+                            <li><strong>Economic Pressures:</strong> High inflation, interest rate hikes, and a looming recession have forced companies to cut costs, including reducing headcounts. <a href="https://www.mprnews.org/story/2023/01/26/why-big-tech-layoffs-happen" target="_blank">MPR News</a>, <a href="https://www.geekwire.com/2023/microsoft-and-amazon-job-cuts-mark-new-phase-for-tech-industry-after-decade-of-massive-growth/" target="_blank">GeekWire</a></li>
+                            <li><strong>Investor Pressure:</strong> Investors have pushed for cost-cutting measures to improve profitability amid slowed growth and market volatility. <a href="https://www.businesstoday.in/latest/world/story/google-microsoft-amazon-5-reasons-why-big-tech-companies-are-laying-off-employees-364464-2023-01-24" target="_blank">Business Today</a>, <a href="https://www.geekwire.com/2023/microsoft-and-amazon-job-cuts-mark-new-phase-for-tech-industry-after-decade-of-massive-growth/" target="_blank">GeekWire</a></li>
+                          </ul>
+                        <p>These factors have collectively driven layoffs in major tech companies, as they adapt to new economic realities and strive to maintain competitiveness.</p>
+
+                    <h3>6. Layoffs by Company Stages</h3>
+                    <p><strong>Insight:</strong> Post-IPO companies have seen the most layoffs (335.05K), indicating that even established companies face significant challenges in the current economic environment.</p>
+                    <p><strong>Possible Reason:</strong> Post-IPO companies may have higher operational costs and investor expectations, leading to larger-scale layoffs to maintain financial stability. The pressure to meet performance targets can drive significant workforce adjustments.</p>
+                    
+                    <h3>7. Total Layoffs and Funds Raised</h3>
+                    <p><strong>Insight:</strong> The chart shows a correlation between layoffs and funds raised by companies, indicating that layoffs might be used as a strategy to improve financial stability.</p>
+                    <p><strong>Possible Reason:</strong> Companies might lay off employees to reduce costs and improve their financial metrics, making them more attractive to investors. This trend suggests that during periods of significant fundraising, companies may restructure to ensure they meet financial expectations and demonstrate fiscal responsibility to their investors. This can often result in short-term layoffs to achieve longer-term financial stability and investor confidence.</p>
+                </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>

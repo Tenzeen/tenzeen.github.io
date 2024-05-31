@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        body {
+            zoom: 0.75; /* 75% zoom for the entire page */
+        }
+        .dashboard-wrapper {
+            zoom: 1.4; /* Counteract the 75% zoom to maintain original size */
+            transform-origin: top left;
+        }
+        .centered-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transform: scale(.75); /* 75% zoom */
+            transform-origin: top left;
+            width: 133.3333%; /* Compensate for the scaling */
+        }
+        .tableauPlaceholder {
+            width: 100%;
+            max-width: 1400px;
+            height: 1027px;
+        }
+        .centered-text {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Header -->
+        <header id="header">
+            <a href="index.html" class="logo">Back to Portfolio</a>
+        </header>
+
+        <!-- Nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="car_sales_overview.html">Project Overview</a></li>
+                <li><a href="car_sales_python.html">Python</a></li>
+                <li class="active"><a href="car_sales_tableau.html">Tableau</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://www.linkedin.com/in/tenzintsegyal/" class="icon brands fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+                <li><a href="https://github.com/Tenzeen" class="icon brands fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <!-- Post -->
+            <section class="post">
+                <header class="major">
+                    <h1>Car Sales</br> Tableau Dashboard</h1>
+                </header>
+
+                <!-- Embed Tableau Dashboard -->
+                <div class="dashboard-wrapper">
+                    <div class="centered-container">
+                        <div class='tableauPlaceholder' id='viz1717106734718' style='position: relative'>
+                            <noscript><a href='#'><img alt='Sales Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Au&#47;AutomotiveSalesDashboard_17140848005190&#47;SalesDashboard&#47;1_rss.png' style='border: none' /></a></noscript>
+                            <object class='tableauViz'  style='display:none;'>
+                                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                                <param name='embed_code_version' value='3' />
+                                <param name='site_root' value='' />
+                                <param name='name' value='AutomotiveSalesDashboard_17140848005190&#47;SalesDashboard' />
+                                <param name='tabs' value='no' />
+                                <param name='toolbar' value='yes' />
+                                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Au&#47;AutomotiveSalesDashboard_17140848005190&#47;SalesDashboard&#47;1.png' />
+                                <param name='animate_transition' value='yes' />
+                                <param name='display_static_image' value='yes' />
+                                <param name='display_spinner' value='yes' />
+                                <param name='display_overlay' value='yes' />
+                                <param name='display_count' value='yes' />
+                                <param name='language' value='en-US' />
+                                <param name='filter' value='publish=yes' />
+                            </object>
+                        </div>
+                    </div>
+                </div>
+
+                <script type='text/javascript'>
+                    var divElement = document.getElementById('viz1717106734718');
+                    var vizElement = divElement.getElementsByTagName('object')[0];
+                    if ( divElement.offsetWidth > 800 ) {
+                        vizElement.style.width='1400px';
+                        vizElement.style.height='1027px';
+                    } else if ( divElement.offsetWidth > 500 ) {
+                        vizElement.style.width='1400px';
+                        vizElement.style.height='1027px';
+                    } else {
+                        vizElement.style.width='100%';
+                        vizElement.style.height='3477px';
+                    }
+                    var scriptElement = document.createElement('script');
+                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                </script>
+
+
+                <!-- Dashboard Description -->
+                <section>
+                    <script></script>
+                    <p class="centered-text">(Please click on View on Tableau Public for a clearer view of the dashboard)</p>
+
+                    <h2>Insights from the Dashboard</h2>
+
+                    <h3>1. Comprehensive Overview</h3>
+                    <p><strong>Insight:</strong> Total sales amount to $438.78M, with 34.99K orders and a profit of $37.92M over the period from December 2014 to July 2015.</p>
+                    <p><strong>Significance:</strong> This snapshot provides a high-level view of the overall performance, allowing stakeholders to quickly gauge the market dynamics and assess the business's health.</p>
+                    
+                    <h3>2. Geographical Insights</h3>
+                    <p><strong>Insight:</strong> Sales are heavily concentrated in certain states, with larger circles indicating higher sales volumes. Key states with significant sales include California, Texas, and Florida.</p>
+                    <p><strong>Significance:</strong> Identifying regional hotspots helps in tailoring marketing strategies, optimizing resource allocation, and focusing sales efforts on high-performing areas to maximize impact.</p>
+
+                    <h3>3. Make and Model Analysis</h3>
+                    <p><strong>Insight:</strong> Ford leads in sales with $56.95M, followed by Chevrolet, Toyota, Nissan, and BMW. The top model is the Altima, generating $12.42M in sales.</p>
+                    <p><strong>Significance:</strong> Understanding which makes and models are most popular aids in inventory management and marketing, ensuring that high-demand vehicles are available and promoted effectively.</p>
+
+                    <h3>4. Color and Condition Impact</h3>
+                    <p><strong>Insight:</strong> Black vehicles are the most sold, contributing $106.61M, followed by white and gray. Excellent condition vehicles account for $172.43M in sales.</p>
+                    <p><strong>Significance:</strong> These insights enable dealerships to optimize their stock and pricing strategies according to customer preferences for color and condition, enhancing customer satisfaction and sales performance.</p>
+
+                    <h3>5. Mileage Analysis</h3>
+                    <p><strong>Insight:</strong> Vehicles with 20k-50k miles are the most popular, generating $177.96M in sales.</p>
+                    <p><strong>Significance:</strong> This analysis helps in setting competitive pricing and creating targeted sales pitches for vehicles in this mileage range, catering to customer demand and preferences.</p>
+
+                    <h3>6. Profit Analysis</h3>
+                    <p><strong>Insight:</strong> Profit metrics align with sales, with Ford generating the highest profit at $5.12M, and Altima being the top profit-generating model at $1.22M.</p>
+                    <p><strong>Significance:</strong> This overview allows stakeholders to understand profitability across different segments, aiding in strategic planning and financial optimization.</p>
+
+                    <h3>7. Orders Analysis</h3>
+                    <p><strong>Insight:</strong> Ford again leads with the highest number of orders at 4.60K, followed by Chevrolet and Nissan. Altima is the most ordered model at 1.16K.</p>
+                    <p><strong>Significance:</strong> This overview provides insights into customer preferences and demand trends, guiding inventory and marketing strategies.</p>
+
+                    <h3>Drill-Down Capabilities</h3>
+                    <p><strong>By Months:</strong> Analyzing data month by month helps identify seasonal trends and patterns, aiding in better planning of marketing campaigns and inventory management.</p>
+                    <p><strong>By State:</strong> Drilling down by state provides a detailed view of regional performance, helping tailor sales strategies to specific areas and optimize resource allocation.</p>
+                    <p><strong>By Condition:</strong> Breaking down data by vehicle condition shows how condition affects sales, profit, and orders, assisting in pricing strategies and inventory management.</p>
+                    <p><strong>By Mileage Groups:</strong> Analyzing sales, profit, and orders by mileage groups reveals how mileage impacts customer purchasing decisions, supporting effective pricing strategies and marketing efforts.</p>
+                    <p><strong>By Make:</strong> Drilling down by make allows stakeholders to see which car brands are performing best, aiding in optimizing the product lineup and inventory management.</p>
+                    <p><strong>By Color:</strong> Analyzing data by vehicle color shows which colors are most popular, guiding inventory decisions and marketing strategies.</p>
+                </section>
+    </div>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>

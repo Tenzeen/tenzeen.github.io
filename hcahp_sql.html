@@ -1,0 +1,362 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Patient Satisfaction Dashboard Project Overview</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-sql.js"></script>
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        body {
+            zoom: 0.75; /* Apply the zoom effect */
+        }
+        pre {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body class="is-preload">
+
+
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <a href="index.html" class="logo">Back to Portfolio</a>
+        </header>
+
+        <!-- Nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="hcahp_overview.html">Project Overview</a></li>
+                <li class="active"><a href="hcahp_sql.html">SQL</a></li>
+                <li><a href="HCAHPS.html">Tableau</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://www.linkedin.com/in/tenzintsegyal/" class="icon brands fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+                <li><a href="https://github.com/Tenzeen" class="icon brands fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+
+            <!-- Post -->
+            <section class="post">
+                <header class="major">
+                    <h1>Patient Satisfaction SQL Code</h1>
+                    <p>This SQL script demonstrates the creation, population, normalization, transformation, and <br />
+					</b>export of hospital data for analysis and reporting purposes. The key steps and functionalities of the script include:</p>
+                </header>
+                <h2>1. Table Creation:</h2>
+                
+                <h3>hospital_beds:</h3>
+                <pre><code class="language-sql">
+CREATE TABLE IF NOT EXISTS hospital_beds
+(
+    provider_ccn INT,
+    hospital_name VARCHAR(255),
+    fiscal_year_begin_date VARCHAR(10),
+    fiscal_year_end_date VARCHAR(10),
+    number_of_beds VARCHAR(255)
+);
+                </code></pre>
+                <p>This table stores information about hospital beds including provider ID, hospital name, fiscal year start and end dates, and the number of beds.</p>
+
+                <h3>HCAHPS_Hospital:</h3>
+                <pre><code class="language-sql">
+CREATE TABLE IF NOT EXISTS HCAHPS_Hospital (
+    Facility_ID VARCHAR(255),
+    Facility_Name VARCHAR(255),
+    Address VARCHAR(255),
+    City_Town VARCHAR(255),
+    State VARCHAR(255),
+    ZIP_Code VARCHAR(255),
+    County_Parish VARCHAR(255),
+    Telephone_Number VARCHAR(255),
+    HCAHPS_Measure_ID VARCHAR(255),
+    HCAHPS_Question TEXT,
+    HCAHPS_Answer_Description TEXT,
+    Patient_Survey_Star_Rating VARCHAR(255),
+    Patient_Survey_Star_Rating_Footnote VARCHAR(255),
+    HCAHPS_Answer_Percent VARCHAR(255),
+    HCAHPS_Answer_Percent_Footnote VARCHAR(255),
+    HCAHPS_Linear_Mean_Value VARCHAR(255),
+    Number_of_Completed_Surveys VARCHAR(255),
+    Number_of_Completed_Surveys_Footnote VARCHAR(255),
+    Survey_Response_Rate_Percent VARCHAR(255),
+    Survey_Response_Rate_Percent_Footnote VARCHAR(255),
+    Start_Date VARCHAR(10),
+    End_Date VARCHAR(10)
+);
+                </code></pre>
+                <p>This table contains HCAHPS (Hospital Consumer Assessment of Healthcare Providers and Systems) survey data including facility details, survey questions, answers, ratings, and other related metrics.</p>
+
+                <h2>2. Data Loading:</h2>
+                <p>The script uses the <code>LOAD DATA INFILE</code> command to import data from CSV files into the respective tables. The data is enclosed by double quotes, fields are separated by commas, and the first row (header) is ignored.</p>
+                <pre><code class="language-sql">
+LOAD DATA INFILE 'path/to/HCAHPS-Hospital-Cleaned.csv'
+INTO TABLE HCAHPS_Hospital
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(
+    Facility_ID,
+    Facility_Name,
+    Address,
+    City_Town,
+    State,
+    ZIP_Code,
+    County_Parish,
+    Telephone_Number,
+    HCAHPS_Measure_ID,
+    HCAHPS_Question,
+    HCAHPS_Answer_Description,
+    Patient_Survey_Star_Rating,
+    Patient_Survey_Star_Rating_Footnote,
+    HCAHPS_Answer_Percent,
+    HCAHPS_Answer_Percent_Footnote,
+    HCAHPS_Linear_Mean_Value,
+    Number_of_Completed_Surveys,
+    Number_of_Completed_Surveys_Footnote,
+    Survey_Response_Rate_Percent,
+    Survey_Response_Rate_Percent_Footnote,
+    Start_Date,
+    End_Date
+);
+
+LOAD DATA INFILE 'path/to/Hospital Beds.csv'
+INTO TABLE hospital_beds
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(
+    provider_ccn,
+    hospital_name,
+    fiscal_year_begin_date,
+    fiscal_year_end_date,
+    number_of_beds
+);
+                </code></pre>
+
+                <h2>3. Data Inspection:</h2>
+                <p>Basic <code>SELECT</code> queries to view the contents of the <code>HCAHPS_Hospital</code> and <code>hospital_beds</code> tables.</p>
+                <pre><code class="language-sql">
+SELECT * FROM HCAHPS_Hospital;
+SELECT * FROM hospital_beds;
+                </code></pre>
+
+                <h2>4. Data Normalization and Transformation:</h2>
+                <p>The script normalizes and transforms the data to clean up non-applicable or unavailable fields, standardize date formats, and join the datasets for comprehensive analysis.</p>
+                
+                <h3>normalized_beds:</h3>
+                <pre><code class="language-sql">
+WITH normalized_beds AS (
+    SELECT
+        LPAD(CAST(provider_ccn AS UNSIGNED), 6, '0') AS provider_ccn,
+        hospital_name,
+        CASE 
+            WHEN fiscal_year_begin_date IN ('Not Applicable', 'Not Available') THEN NULL 
+            ELSE fiscal_year_begin_date 
+        END AS fiscal_year_begin_date,
+        CASE 
+            WHEN fiscal_year_end_date IN ('Not Applicable', 'Not Available') THEN NULL 
+            ELSE fiscal_year_end_date 
+        END AS fiscal_year_end_date,
+        CASE 
+            WHEN TRIM(number_of_beds) IN ('Not Applicable', 'Not Available', '') THEN NULL 
+            ELSE number_of_beds 
+        END AS number_of_beds
+    FROM hospital_beds
+),
+                </code></pre>
+                <p>Normalizes the <code>hospital_beds</code> data by cleaning up non-applicable or unavailable fields and padding provider CCN with leading zeros.</p>
+
+                <h3>transformed_beds:</h3>
+                <pre><code class="language-sql">
+transformed_beds AS (
+    SELECT
+        provider_ccn,
+        hospital_name,
+        STR_TO_DATE(fiscal_year_begin_date, '%m/%d/%Y') AS fiscal_year_begin_date,
+        STR_TO_DATE(fiscal_year_end_date, '%m/%d/%Y') AS fiscal_year_end_date,
+        CASE 
+            WHEN TRIM(number_of_beds) IN ('Not Applicable', 'Not Available', '') THEN NULL 
+            ELSE number_of_beds 
+        END AS number_of_beds,
+        ROW_NUMBER() OVER (PARTITION BY provider_ccn ORDER BY STR_TO_DATE(fiscal_year_begin_date, '%m/%d/%Y') DESC) AS nth_row
+    FROM normalized_beds
+),
+                </code></pre>
+                <p>Transforms the fiscal year dates into a standardized date format and assigns a row number for further processing.</p>
+
+                <h3>normalized_hospital:</h3>
+                <pre><code class="language-sql">
+normalized_hospital AS (
+    SELECT 
+        CASE 
+            WHEN TRIM(facility_id) IN ('Not Applicable', 'Not Available', '') THEN NULL 
+            ELSE facility_id 
+        END AS facility_id,
+        CASE 
+            WHEN TRIM(facility_name) IN ('Not Applicable', 'Not Available', '') THEN NULL 
+            ELSE facility_name 
+        END AS facility_name,
+        CASE 
+            WHEN TRIM(address) IN ('Not Applicable', 'Not Available', '') THEN NULL 
+            ELSE address 
+        END AS address,
+        CASE 
+            WHEN TRIM(city_town) IN ('Not Applicable', 'Not Available', '') THEN NULL 
+            ELSE city_town 
+        END AS city_town,
+        CASE 
+            WHEN TRIM(state) IN ('Not Applicable', 'Not Available', '') THEN NULL 
+            ELSE state 
+        END AS state,
+        CASE 
+            WHEN TRIM(zip_code) IN ('Not Applicable', 'Not Available', '') THEN NULL 
+            ELSE zip_code 
+        END AS zip_code,
+        CASE 
+            WHEN TRIM(county_parish) IN ('Not Applicable', 'Not Available', '') THEN NULL 
+            ELSE county_parish 
+        END AS county_parish,
+        CASE 
+            WHEN TRIM(telephone_number) IN ('Not Applicable', 'Not Available', '') THEN NULL 
+            ELSE telephone_number 
+        END AS telephone_number,
+        CASE 
+            WHEN TRIM(hcahps_measure_id) IN ('Not Applicable', 'Not Available', '') THEN NULL 
+            ELSE hcahps_measure_id 
+        END AS hcahps_measure_id,
+        CASE 
+            WHEN TRIM(hcahps_question) IN ('Not Applicable', 'Not Available', '') THEN NULL 
+            ELSE hcahps_question 
+        END AS hcahps_question,
+        CASE 
+            WHEN TRIM(hcahps_answer_description) IN ('Not Applicable', 'Not Available', '') THEN NULL 
+            ELSE hcahps_answer_description 
+        END AS hcahps_answer_description,
+        CASE 
+            WHEN TRIM(patient_survey_star_rating) IN ('Not Applicable', 'Not Available', '') THEN NULL 
+            ELSE patient_survey_star_rating 
+        END AS patient_survey_star_rating,
+        CASE 
+            WHEN TRIM(hcahps_answer_percent) IN ('Not Applicable', 'Not Available', '') THEN NULL 
+            ELSE hcahps_answer_percent 
+        END AS hcahps_answer_percent,
+        CASE 
+            WHEN TRIM(number_of_completed_surveys) IN ('Not Applicable', 'Not Available', '') THEN NULL 
+            ELSE number_of_completed_surveys 
+        END AS number_of_completed_surveys,
+        CASE 
+            WHEN TRIM(survey_response_rate_percent) IN ('Not Applicable', 'Not Available', '') THEN NULL 
+            ELSE survey_response_rate_percent 
+        END AS survey_response_rate_percent,
+        STR_TO_DATE(
+            CASE 
+                WHEN TRIM(start_date) IN ('Not Applicable', 'Not Available', '') THEN NULL 
+                ELSE start_date 
+            END, '%m/%d/%Y') AS start_date,
+        STR_TO_DATE(
+            CASE 
+                WHEN TRIM(end_date) IN ('Not Applicable', 'Not Available', '') THEN NULL 
+                ELSE end_date 
+            END, '%m/%d/%Y') AS end_date
+    FROM hcahps_hospital
+),
+                </code></pre>
+                <p>Normalizes the <code>HCAHPS_Hospital</code> survey data by cleaning up non-applicable or unavailable fields and converting date fields into a standardized format.</p>
+
+                <h3>cleaned_data:</h3>
+                <pre><code class="language-sql">
+cleaned_data AS (
+    SELECT 
+        nh.facility_id,
+        nh.facility_name,
+        nh.address,
+        nh.city_town,
+        nh.state,
+        nh.zip_code,
+        nh.county_parish,
+        nh.telephone_number,
+        nh.hcahps_measure_id,
+        nh.hcahps_question,
+        nh.hcahps_answer_description,
+        nh.patient_survey_star_rating,
+        nh.hcahps_answer_percent,
+        nh.number_of_completed_surveys,
+        nh.survey_response_rate_percent,
+        nh.start_date,
+        nh.end_date,
+        b.fiscal_year_begin_date,
+        b.fiscal_year_end_date,
+        b.number_of_beds
+    FROM normalized_hospital nh
+    LEFT JOIN transformed_beds b ON b.provider_ccn = nh.facility_id AND b.nth_row = 1
+)
+                </code></pre>
+                <p>Joins the normalized hospital and transformed beds data to create a comprehensive dataset for analysis.</p>
+
+                <h2>5. Data Export:</h2>
+                <p>The script combines the cleaned and transformed data into a single dataset and exports it to a CSV file. This file can be used for further analysis and visualization, such as loading into Tableau for creating dashboards.</p>
+                <pre><code class="language-sql">
+(SELECT 'facility_id', 'facility_name', 'address', 'city_town', 'state', 'zip_code', 
+'county_parish', 'telephone_number', 'hcahps_measure_id', 'hcahps_question', 'hcahps_answer_description', 
+'patient_survey_star_rating', 'hcahps_answer_percent', 'number_of_completed_surveys', 'survey_response_rate_percent', 
+'start_date', 'end_date', 'fiscal_year_begin_date', 'fiscal_year_end_date', 'number_of_beds')
+UNION ALL
+(SELECT 
+    COALESCE(facility_id, 'NULL'), 
+    COALESCE(facility_name, 'NULL'), 
+    COALESCE(address, 'NULL'), 
+    COALESCE(city_town, 'NULL'), 
+    COALESCE(state, 'NULL'), 
+    COALESCE(zip_code, 'NULL'), 
+    COALESCE(county_parish, 'NULL'), 
+    COALESCE(telephone_number, 'NULL'), 
+    COALESCE(hcahps_measure_id, 'NULL'), 
+    COALESCE(hcahps_question, 'NULL'), 
+    COALESCE(hcahps_answer_description, 'NULL'), 
+    COALESCE(patient_survey_star_rating, 'NULL'), 
+    COALESCE(hcahps_answer_percent, 'NULL'), 
+    COALESCE(number_of_completed_surveys, 'NULL'), 
+    COALESCE(survey_response_rate_percent, 'NULL'), 
+    COALESCE(DATE_FORMAT(start_date, '%Y-%m-%d'), 'NULL'), 
+    COALESCE(DATE_FORMAT(end_date, '%Y-%m-%d'), 'NULL'), 
+    COALESCE(DATE_FORMAT(fiscal_year_begin_date, '%Y-%m-%d'), 'NULL'), 
+    COALESCE(DATE_FORMAT(fiscal_year_end_date, '%Y-%m-%d'), 'NULL'), 
+    COALESCE(number_of_beds, 'NULL')
+ FROM cleaned_data)
+INTO OUTFILE 'path/to/exported_file.csv'
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n';
+                </code></pre>
+
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>

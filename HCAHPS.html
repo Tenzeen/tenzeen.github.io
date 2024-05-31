@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Patient Satisfaction Dashboard Project Overview</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        body {
+            zoom: 0.75; /* 75% zoom for the entire page */
+        }
+        .dashboard-wrapper {
+            zoom: 1.4; /* Counteract the 75% zoom to maintain original size */
+            transform-origin: top left;
+        }
+        .centered-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transform: scale(.75); /* 75% zoom */
+            transform-origin: top left;
+            width: 133.3333%; /* Compensate for the scaling */
+        }
+        .tableauPlaceholder {
+            width: 100%;
+            max-width: 1400px;
+            height: 877px;
+        }
+        .centered-text {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Header -->
+        <header id="header">
+            <a href="index.html" class="logo">Back to Portfolio</a>
+        </header>
+
+        <!-- Nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="hcahp_overview.html">Project Overview</a></li>
+                <li><a href="hcahp_sql.html">SQL</a></li>
+                <li class="active"><a href="HCAHPS.html">Tableau</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://www.linkedin.com/in/tenzintsegyal/" class="icon brands fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+                <li><a href="https://github.com/Tenzeen" class="icon brands fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <!-- Post -->
+            <section class="post">
+                <header class="major">
+                    <h1>Patient Satisfaction Tableau Dashboard</h1>
+                </header>
+
+                <!-- Embed Tableau Dashboard -->
+                <div class="dashboard-wrapper">
+                    <div class="centered-container">
+                        <div class='tableauPlaceholder' id='viz1716417033955' style='position: relative'>
+                            <noscript>
+                                <a href='#'><img alt='Dashboard 1' src='https://public.tableau.com/static/images/Pa/PatientSatisfaction_17163430673820/Dashboard1/1_rss.png' style='border: none' /></a>
+                            </noscript>
+                            <object class='tableauViz'>
+                                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                                <param name='embed_code_version' value='3' />
+                                <param name='site_root' value='' />
+                                <param name='name' value='PatientSatisfaction_17163430673820/Dashboard1' />
+                                <param name='tabs' value='no' />
+                                <param name='toolbar' value='yes' />
+                                <param name='static_image' value='https://public.tableau.com/static/images/Pa/PatientSatisfaction_17163430673820/Dashboard1/1.png' />
+                                <param name='animate_transition' value='yes' />
+                                <param name='display_static_image' value='yes' />
+                                <param name='display_spinner' value='yes' />
+                                <param name='display_overlay' value='yes' />
+                                <param name='display_count' value='yes' />
+                                <param name='language' value='en-US' />
+                                <param name='filter' value='publish=yes' />
+                            </object>
+                        </div>
+                    </div>
+                </div>
+
+                <script type='text/javascript'>
+                    var divElement = document.getElementById('viz1716417033955');
+                    var vizElement = divElement.getElementsByTagName('object')[0];
+                    if ( divElement.offsetWidth > 800 ) {
+                        vizElement.style.width='1400px';
+                        vizElement.style.height='877px';
+                    } else if ( divElement.offsetWidth > 500 ) {
+                        vizElement.style.width='100%';
+                        vizElement.style.height='877px';
+                    } else {
+                        vizElement.style.width='100%';
+                        vizElement.style.height='1377px';
+                    }
+                    var scriptElement = document.createElement('script');
+                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                </script>
+
+                <!-- Dashboard Description -->
+                <section>
+                    <script></script>
+                    <p class="centered-text">(Please click on View on Tableau Public for a clearer view of the dashboard)</p>
+
+                    <h2>Insights from the Dashboard</h2>
+
+                    <h3>1. Percentage of Patients Rating Hospital 9-10</h3>
+                    <p><strong>Insight:</strong> Mount Sinai Hospital has a 64% rating of patients scoring the hospital between 9-10, which is lower than the top performer, NYU Langone Hospitals, at 73%.</p>
+                    <p>By hovering over the selected hospital, the tooltip reveals that Mount Sinai's lowest star ratings are attributed to quietness, nurse communication, and staff responsiveness.</p>
+                    <p><strong>Actionable Recommendation:</strong> Implement targeted initiatives to enhance patient experiences in key areas such as room cleanliness, staff responsiveness, and communication. This could include staff training programs, enhanced cleaning protocols, and improved patient-staff communication strategies.</p>
+
+                    <h3>2. Satisfaction Score Variance from Cohort Average</h3>
+                    <p><strong>Insight:</strong> The dashboard shows the variance in satisfaction scores for various aspects of patient care compared to the cohort average. While Mount Sinai performs better than the average in areas like "Nurses always treated them with courtesy and respect" (+2.00%) and "Staff always explained new medications" (+2.89%), there are several areas where Mount Sinai performs worse than the cohort average:</p>
+                    <ul>
+                        <li>Always quiet at night: -3.89%</li>
+                        <li>Patients always received bathroom help as soon as they wanted: -0.82%</li>
+                        <li>Staff always explained possible side effects: -0.50%</li>
+                        <li>Room was always clean: -0.46%</li>
+                        <li>Patients always received help as soon as they wanted: -0.25%</li>
+                    </ul>
+                    <p><strong>Actionable Recommendation:</strong> 
+                        <ul>
+                            <li>For Positive Variances: Continue to build on these strengths by recognizing and rewarding staff who consistently deliver high-quality care. Implement regular training sessions to reinforce the importance of courtesy and thorough communication.</li>
+                            <li>For Negative Variances: Address the areas needing improvement by:
+                                <ul>
+                                    <li>Implementing measures to reduce nighttime noise, such as installing soundproofing materials and enforcing quiet hours more strictly.</li>
+                                    <li>Ensuring adequate staffing and efficient processes to provide timely bathroom assistance to patients.</li>
+                                    <li>Enhancing training programs to ensure that staff thoroughly explain possible side effects to patients.</li>
+                                    <li>Reviewing and improving cleaning protocols to ensure rooms are consistently clean.</li>
+                                    <li>Implementing systems and processes to ensure patients receive help as soon as they request it.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </p>
+                    
+                    <h3>3. Cohort Hospital Delta Spread</h3>
+                    <p><strong>Insight:</strong> The spread of scores for various satisfaction metrics compared to the cohort average is visualized, showing areas where Mount Sinai exceeds or falls short. For example, "Always quiet at night" shows a significant negative variance of -3.89%, indicating a common area of concern.</p>
+                    <p><strong>Actionable Recommendation:</strong> Implement measures to reduce nighttime noise, such as installing soundproofing materials, enforcing quiet hours more strictly, and providing patients with earplugs or white noise machines.</p>
+
+                    <h2>Additional Analysis</h2>
+
+                    <h3>Survey Response Rate and Total Surveys Completed</h3>
+                    <p><strong>Insight:</strong> Mount Sinai Hospital has a survey response rate of 17.00% with 760 surveys completed. This data indicates the level of engagement and feedback from patients.</p>
+                    The response rate can reflect the hospital's effectiveness in encouraging patients to participate in satisfaction surveys.</p>
+                    <p><strong>Actionable Recommendation:</strong> Increase efforts to boost survey participation by simplifying the survey process, sending reminders, and offering small incentives for completion.</p>
+
+                    <h3>Comparative Performance</h3>
+                    <p><strong>Insight:</strong> Comparing Mount Sinai's scores with other hospitals, the dashboard shows that while Mount Sinai performs well in certain areas, there are opportunities for improvement in others, such as cleanliness and noise levels.</p>
+                    <p><strong>Actionable Recommendation:</strong> Conduct detailed reviews of areas with low satisfaction scores to identify specific issues. Develop targeted action plans to address these issues, such as enhancing cleaning schedules and procedures, and improving staff training on maintaining a clean and quiet environment.</p>
+
+                    <h2>Summary</h2>
+                    <p>The Patient Satisfaction Dashboard offers valuable insights into how Mount Sinai Hospital performs in various aspects of patient care compared to other hospitals. By identifying strengths and areas for improvement, the hospital can implement targeted strategies to enhance patient satisfaction and overall service quality. This comprehensive analytical tool is essential for monitoring, analyzing, and acting on various aspects of patient satisfaction, ultimately leading to improved care delivery and financial health under value-based payment models.</p>
+                </section>
+            </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>

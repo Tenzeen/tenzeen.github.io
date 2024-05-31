@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Data Cleaning SQL Script Overview</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-sql.js"></script>
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        body {
+            zoom: 0.75; /* Apply the zoom effect */
+        }
+        pre {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <a href="index.html" class="logo">Back to Portfolio</a>
+        </header>
+
+        <!-- Nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="layoffs_overview.html">Project Overview</a></li>
+                <li class="active"><a href="layoffs_cleaning.html">SQL</a></li>
+                <li><a href="layoffs_tableau.html">Tableau</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://www.linkedin.com/in/tenzintsegyal/" class="icon brands fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+                <li><a href="https://github.com/Tenzeen" class="icon brands fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+
+            <!-- Post -->
+            <section class="post">
+                <header class="major">
+                    <h1>Global Layoffs </br> SQL Cleaning</h1>
+                    <p>This SQL script demonstrates the process of cleaning and standardizing a dataset to prepare it for analysis. The key steps include creating a staging table, removing duplicates, standardizing data, and handling null or blank values.</p>
+                </header>
+                <h2>1. Table Creation:</h2>
+                
+                <h3>Create Staging Table:</h3>
+                <pre><code class="language-sql">
+CREATE TABLE layoffs_staging
+LIKE layoffs;
+                </code></pre>
+                <p>This step creates a staging table, which is an exact copy of the original raw data table. This allows us to perform data cleaning operations without modifying the original dataset.</p>
+
+                <h2>2. Data Insertion:</h2>
+                <h3>Insert Data into Staging Table:</h3>
+                <pre><code class="language-sql">
+INSERT INTO layoffs_staging
+SELECT * FROM layoffs;
+                </code></pre>
+                <p>The raw data is inserted into the staging table. This step ensures that any changes made during the cleaning process do not affect the original dataset.</p>
+
+                <h2>3. Remove Duplicates:</h2>
+                <h3>Identify and Remove Duplicates:</h3>
+                <pre><code class="language-sql">
+CREATE TEMPORARY TABLE temp_layoffs AS
+SELECT DISTINCT * FROM layoffs_staging;
+
+TRUNCATE TABLE layoffs_staging;
+
+INSERT INTO layoffs_staging
+SELECT * FROM temp_layoffs;
+
+DROP TEMPORARY TABLE temp_layoffs;
+                </code></pre>
+                <p>In this step, we identify and remove duplicate records. A temporary table is created to hold the distinct records from the staging table. The staging table is then truncated (emptied), and the distinct records are re-inserted back into it. Finally, the temporary table is dropped.</p>
+
+                <h2>4. Data Standardization:</h2>
+                
+                <h3>Standardize Columns:</h3>
+                <pre><code class="language-sql">
+UPDATE layoffs_staging
+SET company = TRIM(company);
+
+UPDATE layoffs_staging
+SET industry = 'Crypto'
+WHERE industry LIKE '%Crypto%';
+
+UPDATE layoffs_staging
+SET country = 'United States'
+WHERE country LIKE '%United States%';
+
+UPDATE layoffs_staging
+SET `date` = STR_TO_DATE(`date`, '%m/%d/%Y');
+
+ALTER TABLE layoffs_staging
+MODIFY COLUMN `date` DATE;
+                </code></pre>
+                <p>This step standardizes the data in several columns:
+                <ul>
+                    <li><strong>Company:</strong> Trims any leading or trailing whitespace.</li>
+                    <li><strong>Industry:</strong> Unifies different representations of the same industry (e.g., 'Crypto', 'CryptoCurrency', and 'Crypto Currency' are all converted to 'Crypto').</li>
+                    <li><strong>Country:</strong> Standardizes country names (e.g., 'United States.' is converted to 'United States').</li>
+                    <li><strong>Date:</strong> Converts date strings to a standard date format and changes the data type to DATE.</li>
+                </ul>
+                </p>
+
+                <h2>5. Handling Null/Blank Values:</h2>
+                
+                <h3>Handle Null or Blank Values:</h3>
+                <pre><code class="language-sql">
+UPDATE layoffs_staging t1
+JOIN layoffs_staging t2 
+    ON t1.company = t2.company
+SET t1.industry = t2.industry
+WHERE t1.industry IS NULL
+AND t2.industry IS NOT NULL;
+
+DELETE
+FROM layoffs_staging
+WHERE industry IS NULL;
+
+DELETE
+FROM layoffs_staging
+WHERE total_laid_off IS NULL
+AND percentage_laid_off IS NULL;
+                </code></pre>
+                <p>This step handles null or blank values:
+                <ul>
+                    <li><strong>Industry:</strong> If the industry field is null, it is updated based on other records with the same company. If no matching record is found, the row is deleted.</li>
+                    <li><strong>Total Laid Off and Percentage Laid Off:</strong> Rows where both fields are null are deleted.</li>
+                </ul>
+                </p>
+
+                <h2>6. Final Data Review:</h2>
+                <pre><code class="language-sql">
+SELECT * FROM layoffs_staging;
+                </code></pre>
+                <p>The final cleaned data is reviewed by selecting all records from the staging table to ensure the cleaning operations were successful.</p>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js
