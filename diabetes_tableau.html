@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        body {
+            zoom: 0.75; /* 75% zoom for the entire page */
+        }
+        .dashboard-wrapper {
+            zoom: 1.4; /* Counteract the 75% zoom to maintain original size */
+            transform-origin: top left;
+        }
+        .centered-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transform: scale(.75); /* 75% zoom */
+            transform-origin: top left;
+            width: 133.3333%; /* Compensate for the scaling */
+        }
+        .tableauPlaceholder {
+            width: 100%;
+            max-width: 1300px;
+            height: 732px;
+        }
+        .centered-text {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .post section {
+            margin-top: 20px; /* Reduce space between sections */
+        }
+    </style>
+</head>
+<body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Header -->
+        <header id="header">
+            <a href="index.html" class="logo">Back to Portfolio</a>
+        </header>
+
+        <!-- Nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="diabetes_overview.html">Project Overview</a></li>
+                <li><a href="diabetes_excel.html">Excel</a></li>
+                <li><a href="diabetes_python.html">Python</a></li>
+                <li class="active"><a href="diabetes_tableau.html">Tableau</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://www.linkedin.com/in/tenzintsegyal/" class="icon brands fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+                <li><a href="https://github.com/Tenzeen" class="icon brands fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <!-- Post -->
+            <section class="post">
+                <header class="major">
+                    <h1>Diabetes Readmission </br> Tableau Dashboard</h1>
+                </header>
+
+                <!-- Embed Tableau Dashboard -->
+                <div class="dashboard-wrapper">
+                    <div class="centered-container">
+                        <div class='tableauPlaceholder' id='viz1717194794690' style='position: relative'>
+                            <noscript><a href='#'><img alt='Demographics Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;fi&#47;final_diabetes_dash&#47;DemographicsDashboard&#47;1_rss.png' style='border: none' /></a></noscript>
+                            <object class='tableauViz'  style='display:none;'>
+                                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                                <param name='embed_code_version' value='3' /> 
+                                <param name='site_root' value='' />
+                                <param name='name' value='final_diabetes_dash&#47;DemographicsDashboard' />
+                                <param name='tabs' value='no' />
+                                <param name='toolbar' value='yes' />
+                                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;fi&#47;final_diabetes_dash&#47;DemographicsDashboard&#47;1.png' /> 
+                                <param name='animate_transition' value='yes' />
+                                <param name='display_static_image' value='yes' />
+                                <param name='display_spinner' value='yes' />
+                                <param name='display_overlay' value='yes' />
+                                <param name='display_count' value='yes' />
+                                <param name='language' value='en-US' />
+                            </object>
+                        </div>
+                    </div>
+                </div>
+
+                <script type='text/javascript'>
+                    var divElement = document.getElementById('viz1717194794690');
+                    var vizElement = divElement.getElementsByTagName('object')[0];
+                    if ( divElement.offsetWidth > 800 ) {
+                        vizElement.style.width='1300px';
+                        vizElement.style.height='732px';
+                    } else if ( divElement.offsetWidth > 500 ) {
+                        vizElement.style.width='1300px';
+                        vizElement.style.height='732px';
+                    } else {
+                        vizElement.style.width='100%';
+                        vizElement.style.height='3477px';
+                    }
+                    var scriptElement = document.createElement('script');
+                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                </script>
+
+                <!-- Dashboard Description -->
+                <section>
+                    <p class="centered-text">(Please click on View on Tableau Public for a clearer view of the dashboard)</p>
+
+                    <h2>Detailed Insights from the Diabetes Readmission Dashboard</h2>
+
+                    <h3>1. Average Length of Stay (LOS) by Age & Race</h3>
+                    <p>The heatmap shows significant variations in LOS among different racial groups and age brackets. African American patients generally exhibit higher average LOS across most age groups, with the highest average LOS seen in the 90-100 age group for Hispanic patients at 6.143 days. This insight highlights the need for tailored interventions considering racial and age-specific factors to reduce LOS and readmissions.</p>
+
+                    <h3>2. Average LOS by Age & Gender</h3>
+                    <p>This scatter plot reveals that older age groups tend to have longer average LOS, with a notable trend that female patients have a slightly higher average LOS compared to male patients in the older age categories. This gender-specific insight is crucial for developing targeted strategies to manage LOS effectively.</p>
+
+                    <h3>3. Age Distribution</h3>
+                    <p>The bar chart indicates that the majority of diabetic patients fall within the 70-80 age range, followed by those in the 60-70 and 80-90 age ranges. This demographic insight emphasizes the importance of focusing healthcare resources and preventive measures on these age groups to manage and reduce readmissions.</p>
+
+                    <h3>4. Average Length of Stay by Age</h3>
+                    <p>The plot illustrates that patients readmitted within 30 days generally have a longer average LOS. The trend shows that older age groups have higher readmission rates, indicating that age is a significant factor in readmissions. This insight helps in understanding the correlation between age and LOS, guiding the implementation of age-specific care protocols.</p>
+
+                    <h3>5. Readmissions by Diagnosis</h3>
+                    <p>The treemap visualization identifies that diseases of the circulatory system are the most common diagnoses leading to readmissions, followed by endocrine, nutritional and metabolic diseases. This diagnostic insight is vital for prioritizing medical conditions that require more intensive management to prevent readmissions.</p>
+
+                    <h3>6. Readmissions by Age</h3>
+                    <p>The bar chart presents the number of patients readmitted within 30 days versus those who did not, categorized by age. The 70-80 age group shows the highest readmission rates, followed by other older age groups. This insight underscores the need for focused interventions and continuous monitoring for elderly patients to reduce readmission rates.</p>
+
+                    <h3>Summary of Key Insights</h3>
+                    <p><strong>Demographic Analysis:</strong> The dashboard effectively visualizes critical demographic information such as age, race, and gender, providing a detailed understanding of how these factors influence LOS and readmissions.</p>
+                    <p><strong>LOS Trends:</strong> Insights into LOS variations across different demographic groups help in identifying high-risk groups and tailoring interventions accordingly.</p>
+                    <p><strong>Diagnosis Impact:</strong> Highlighting the most common diagnoses associated with readmissions allows for targeted medical and preventive strategies.</p>
+                    <p><strong>Readmission Patterns:</strong> Understanding the patterns of readmissions by age and diagnosis aids in developing comprehensive care plans to reduce readmission rates.</p>
+                </section>
+            </section>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>

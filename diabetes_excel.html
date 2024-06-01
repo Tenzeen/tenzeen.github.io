@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Diabetes Readmission Overview | Dashboard</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        body {
+            zoom: 0.75; /* Apply the zoom effect */
+        }
+        pre {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Header -->
+        <header id="header">
+            <a href="index.html" class="logo">Back to Portfolio</a>
+        </header>
+
+        <!-- Nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="diabetes_overview.html">Project Overview</a></li>
+                <li class="active"><a href="diabetes_excel.html">Excel</a></li>
+                <li><a href="diabetes_python.html">Python</a></li>
+                <li><a href="diabetes_tableau.html">Tableau</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://www.linkedin.com/in/tenzintsegyal/" class="icon brands fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+                <li><a href="https://github.com/Tenzeen" class="icon brands fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <!-- Post -->
+            <section class="post">
+                <header class="major">
+                    <h1>Diabetes Readmission </br>Preprocessing in Excel</h1>
+                </header>
+
+                <h2>Steps</h2>
+                <ol>
+                    <li><strong>Dropping Unnecessary Columns:</strong> You identified and removed columns that were not relevant to your analysis or had a high percentage of missing values. These columns included:
+                        <ul>
+                            <li>Weight: Many values were missing, represented by ?, and it was deemed not critical for the analysis.</li>
+                            <li>Payer Code: This column was likely deemed irrelevant for the analysis.</li>
+                            <li>Medical Specialty: This column had a high percentage of missing values.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Handling Missing Values:</strong> You addressed missing values to ensure data completeness and integrity:
+                        <ul>
+                            <li>Replaced ? with appropriate values or NaN to identify missing entries.</li>
+                            <li>Dropped rows with missing values in critical columns to maintain data quality.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Encoding Categorical Variables:</strong> You converted categorical variables into numerical representations to facilitate analysis. This included:
+                        <ul>
+                            <li>Readmitted: Converted categorical values (NO, >30, <30) into numerical values.</li>
+                            <li>Change and DiabetesMed: Converted No and Yes into binary values.</li>
+                            <li>Gender: Converted Female and Male into binary values.</li>
+                            <li>Age: Converted age ranges into numerical categories.</li>
+                            <li>Race: Mapped racial categories to numerical values.</li>
+                            <li>Admission Type, Discharge Disposition, and Admission Source: Mapped these categorical values to numerical codes.</li>
+                            <li>Medication Columns: Encoded values indicating whether a medication was used (No, Steady, Up, Down) into binary or numerical values.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Standardizing Data:</strong> You ensured consistency in data formatting across the dataset:
+                        <ul>
+                            <li>Standardized categorical text by converting all entries to a consistent format (e.g., lowercase or uppercase).</li>
+                            <li>Ensured that age ranges were consistently formatted and represented.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Removing Duplicates:</strong> You removed duplicate rows to ensure data integrity:
+                        <ul>
+                            <li>Identified and removed duplicate rows based on unique identifiers such as encounter_id to prevent redundancy.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Filtering Out Irrelevant Data:</strong> You filtered out records with unrealistic or irrelevant values to improve data quality:
+                        <ul>
+                            <li>Removed records with unrealistic values in critical columns, such as very high time_in_hospital values that were deemed implausible.</li>
+                            <li>Ensured that the dataset included only relevant patient records for the analysis.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <h2>Summary</h2>
+                <p>Through these detailed steps, you transformed the raw data into a clean, analyzable format by dropping unnecessary columns, handling missing values, encoding categorical variables, standardizing data, removing duplicates, and filtering out irrelevant data. This process ensured that the dataset was of high quality and suitable for further analysis and modeling.</p>
+                
+                <h2>Download Datasets</h2>
+                <ul>
+                    <li><a href="/mnt/data/diabetic_data.csv" download>Download Raw Diabetic Data</a></li>
+                    <li><a href="/mnt/data/cleaned_diabetic_data_final_presentation1.csv" download>Download Cleaned Diabetic Data</a></li>
+                </ul>
+            </section>
+        </div>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
